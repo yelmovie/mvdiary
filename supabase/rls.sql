@@ -363,3 +363,19 @@ CREATE POLICY "Teachers can manage own notes"
 -- 보안 검증: 모든 접근은 teacher_classes 기준으로 제한됨
 -- 다음 단계: API 라우트 구현
 
+-- Explicit Data API privileges; table grants do not bypass existing RLS.
+grant select, insert, update, delete on table public.schools to authenticated;
+grant select, insert, update, delete on table public.classes to authenticated;
+grant select, insert, update, delete on table public.todos to authenticated;
+grant select, insert, update, delete on table public.todo_status to authenticated;
+grant select, insert, update, delete on table public.notices to authenticated;
+grant select, insert, update, delete on table public.notice_reads to authenticated;
+grant select, insert, update, delete on table public.messages to authenticated;
+grant select, insert, update, delete on table public.submissions to authenticated;
+grant select, insert, update, delete on table public.student_notes to authenticated;
+grant select, insert, update, delete on table public.schedules to authenticated;
+grant select, insert, update, delete on table public.teacher_notes to authenticated;
+grant select on table public.profiles to authenticated;
+grant select on table public.teacher_classes to authenticated;
+grant select on table public.student_classes to authenticated;
+grant update (display_name) on table public.profiles to authenticated;
